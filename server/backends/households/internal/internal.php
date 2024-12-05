@@ -235,7 +235,12 @@
                         ];
                         break;
 
+                    case "subscriberMobile":
                     case "subscriberId":
+                        if ("subscriberId" === $by) {
+                            error_log("Fetching flats by \"subscriberId\" is deprecated and will be removed in the future. Please use \"subscriberMobile\" instead.");
+                        }
+
                         $q = "
                             select
                                 house_flat_id
