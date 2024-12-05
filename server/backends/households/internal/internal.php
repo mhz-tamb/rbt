@@ -2709,7 +2709,7 @@
                 $addresses = loadBackend("addresses");
 
                 foreach ($result as &$subscriber) {
-                    $subscriber["flats"] = $this->getFlats("subscriberId", [ "id" => $subscriber["mobile"] ]);
+                    $subscriber["flats"] = $this->getFlats("subscriberMobile", [ "id" => $subscriber["mobile"] ]);
                     foreach ($subscriber["flats"] as &$flat) {
                         $flat["house"] = $addresses->getHouse($flat["houseId"]);
                     }

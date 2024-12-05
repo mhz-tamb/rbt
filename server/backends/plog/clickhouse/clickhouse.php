@@ -422,7 +422,7 @@
                 $households = loadBackend('households');
                 $result = $households->getSubscribers('mobile', $user_phone);
                 if ($result && $result[0]) {
-                    $flats1 = array_map('self::getFlatId', $households->getFlats('subscriberId', ['id' => $user_phone]));
+                    $flats1 = array_map('self::getFlatId', $households->getFlats('subscriberMobile', ['id' => $user_phone]));
                     $flats2 = array_map('self::getFlatId', $households->getFlats('domophoneId', $domophone_id));
                     return array_intersect($flats1, $flats2);
                 }
